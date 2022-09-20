@@ -289,3 +289,41 @@ NaN
 // }
 
 // console.log(evenNumbers)
+
+// Функции
+
+// function getNumberData(question) {
+//   while (true) {
+//     const res = +prompt(question)
+
+//     if (res === 0 || res) {
+//       return res
+//     }
+//   }
+// }
+
+// const age = getNumberData('Сколько тебе лет?')
+// console.log(age)
+
+// WORK
+
+// 1. Напишите функцию multiply, которая принимает 3 значения, перемножает их
+// и возвращает результат.
+
+// 2. Напишите функцию euroToRub, которая принимает один параметр (число в евро)
+// и возвращает число - количество рублей по курсу 1 евро = 90 рублей.
+
+// 3. Напишите функцию milesToKm, которая принимает один параметр (число в милях)
+// и возвращает значение в километрах.
+
+// function multiply(a, b, c) {
+//   return a * b * c
+// }
+
+// function euroToRub(euro) {
+//   return euro * 90
+// }
+
+// function milesToKm(miles) {
+//   return miles * 1.609
+// }
