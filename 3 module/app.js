@@ -72,7 +72,31 @@ const correctAnswerLower = correctAnswer.toLowerCase()
 const userAnswerLower = userAnswer.toLowerCase()
 const isCorrect = userAnswerLower.includes(correctAnswerLower)
 
-
 // 2.
 const salary = 15000.2085
 const salaryFixed = salary.toFixed(2)
+
+// Методы массивов
+
+// Использование методов массива
+// 1) Дан массив fruits. Используя встроенный метод массива, определите есть ли в массиве значение
+// 'orange' и ответ сохраните в константу hasOrange.
+
+// 2) Дан массив cars. Используя встроенный метод массива, выберите из него первые три значения
+// и сохраните их в константу favoriteCars.
+
+// 3) Создайте константу otherCars, сохранив в нее оставшиеся три значения из исходного массива cars.
+
+// // 1
+// const fruits = ['apple', 'banana', 'melon', 'orange']
+// const hasOrange = fruits.includes('orange')
+
+// // 2
+// const cars = ['BMW', 'Nissan', 'VW', 'Skoda', 'Audi', 'Kia']
+// const favoriteCars = cars.slice(0, 3)
+
+// // 3
+// const otherCars = cars.slice(3, 6)
+
+// console.log(favoriteCars)
+// console.log(otherCars)
