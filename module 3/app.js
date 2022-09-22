@@ -6,7 +6,7 @@ const dog = {
   color: 'white',
   weight: 5,
   goThis() {
-    console.log(this)
+    // console.log(this)
   },
 }
 
@@ -100,3 +100,20 @@ const salaryFixed = salary.toFixed(2)
 
 // console.log(favoriteCars)
 // console.log(otherCars)
+
+// Errors debugging
+
+function sum(a, b) {
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    throw new Error('ввели не цифры')
+  }
+  return a + b
+}
+
+try {
+  sum()
+} catch (error) {
+  console.error(error.message)
+}
+
+//RegExp - регулярные выражения
