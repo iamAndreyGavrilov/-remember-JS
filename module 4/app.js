@@ -136,3 +136,202 @@
 // console.log(filterArray(numbers, isOdd)) // Должен вывести: [1, 3, 5]
 
 // Рекурсия
+
+// Функция вызвает саму себя
+
+// 1. Базовое условие(терминальное)
+// 2. Правило движения по рекурсии
+
+// function factorial(n) {
+//   if (n === 0) {
+//     return 1
+//   }
+
+//   return n * factorial(n - 1)
+// }
+
+// console.log(factorial(3))
+
+// let counter = 0
+// function repeater(char) {
+//   counter++
+
+//   if (counter === 5) {
+//     counter = 0
+//     return char
+//   }
+//   return char + repeater(char)
+// }
+
+// console.log(repeater('x'))
+// console.log(repeater('f2'))
+
+// Практика на рекурсию
+// Напишите функцию getLength, которая в качестве параметра будет принимать массив
+// и рекурсивно высчитывать его длину (количество элементов).
+
+// По условию задачи нельзя использовать встроенное свойство length массива.
+
+// Используйте метод pop для удаления элементов массива, чтобы подсчитать итоговое количество.
+
+// function getLength(arr) {
+//   // базовый случай (терминальный)
+//   if (arr.pop() === undefined) {
+//     return 0
+//   }
+//   // рекурсивный вызов
+//   return 1 + getLength(arr)
+// }
+
+// console.log(getLength([1, 2, 3, 4]))
+
+// Замыкания в JS
+// 1. функции, которые возвращаются из других функций
+// 2. возвращаемая функция запоминает scope
+
+// function hello(name) {
+//   const helloName = () => {
+//     console.log('hello', name)
+//   }
+//   return helloName
+// }
+// const hi = hello('vasia')
+// hi()
+
+// function ounter() {
+//   let counter = 0
+
+//   function increment() {
+//     console.log(++counter)
+//   }
+//   return increment
+// }
+
+// const count1 = ounter()
+// count1()
+// count1()
+// count1()
+
+// const count2 = ounter()
+// count2()
+// count2()
+// count2()
+
+// Практика на замыкание
+// Создайте функцию addByX. Которая принимает 1 параметр (число) и возвращает новую функцию,
+// которая также принимает число и возвращает его сумму с исходным параметром.
+
+// Примеры использования:
+
+// function addByX(num1) {
+//   function sum(num2) {
+//    return num1 + num2
+//   }
+//   return sum
+// }
+
+// const addByTwo = addByX(2)
+// addByTwo(3) // 5
+// addByTwo(5) // 7
+
+// const addByFour = addByX(4)
+// addByFour(3) // 7
+// addByFour(5) // 9
+
+// Контекст вызова функции (THIS)
+
+// const cat = {
+//   name: 'Mysia',
+//   say() {
+//     const greeting = () => console.log(this.name)
+//     // function greeting() {
+//     //   console.log(this.name)
+//     // }
+//     setTimeout(greeting, 1000)
+//   },
+// }
+// cat.say()
+
+// Уточнение контекста вызова функции (THIS)
+
+// const developer = {
+//   name: 'Vasia',
+//   salary: 2500,
+
+//   getBonus(sum1, sum2) {
+//     console.log(this.name, 'зп и бонус', this.salary + sum1 + sum2)
+//   },
+// }
+
+// developer.getBonus(150, 250)
+
+// const manager = {
+//   name: 'anna',
+//   salary: 1500,
+// }
+
+// developer.getBonus.call(manager, 150, 250)
+// developer.getBonus.apply(manager, [150, 250])
+
+// //создаем привязку и у manager появляется свой метод getBonus
+// manager.getBonus = developer.getBonus.bind(manager)
+// manager.getBonus(150, 250)
+
+// Практика на использование контекста
+// Дан объект supporter1. Опишите его метод chant, при вызове которого с задержкой в 1 секунду
+// в консоль выводится сообщение "Forza Milan".
+
+// Затем привяжите к объекту supporter2 метод chant таким образом, чтобы при вызове спустя 1 секунду
+// в консоль выводилось сообщение "Forza Inter".
+
+// const supporter1 = {
+//   club: 'Milan',
+
+//   chant() {
+//     const foo = () => console.log('Forza ' + this.club)
+//     setTimeout(foo, 1000)
+//   },
+// }
+// supporter1.chant()
+
+// const supporter2 = {
+//   club: 'Inter',
+// }
+
+// supporter2.chant = supporter1.chant.bind(supporter2)
+// supporter2.chant()
+
+
+
+
+// Проект. Практика
+// Создайте функцию censor, которая не принимает аргументов. Функция должна возвращать новую функцию,
+// принимающую опционально 1 или 2 параметра (оба - строки).
+
+// Когда возвращаемая функция принимает 2 параметра, то она ничего не возвращает, а сохраняет
+// полученные значения как пару (пара - это массив с двумя значениями).
+
+// Когда возвращаемая функция принимает 1 параметр, то она возвращает полученную строку, заменив
+// в ней все слова, согласно ранее сохранённым парам.
+
+// Пример использования:
+
+const changeScene = censor()
+
+changeScene('PHP', 'JS')
+
+changeScene('backend', 'frontend')
+
+console.log(
+  changeScene(
+    'PHP is the most popular programming language for backend web-development'
+  )
+) // должно распечатать 'JS is the most popular programming language for frontend web-development'
+
+// Примечание: в переданной строке, в качестве единственного параметра, замена происходит согласно
+// парам, где первое значение пары - что мы хотим заменить, второе значение пары - на что хотим заменить.
+
+
+function censor() {
+	
+}
