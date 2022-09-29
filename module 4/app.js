@@ -301,9 +301,6 @@
 // supporter2.chant = supporter1.chant.bind(supporter2)
 // supporter2.chant()
 
-
-
-
 // Проект. Практика
 // Создайте функцию censor, которая не принимает аргументов. Функция должна возвращать новую функцию,
 // принимающую опционально 1 или 2 параметра (оба - строки).
@@ -331,7 +328,16 @@ console.log(
 // Примечание: в переданной строке, в качестве единственного параметра, замена происходит согласно
 // парам, где первое значение пары - что мы хотим заменить, второе значение пары - на что хотим заменить.
 
-
 function censor() {
-	
+  const censoredArr = []
+  return function (str1, str2 = '') {
+    if (str2) {
+      censoredArr.push([str1, str2])
+    } else {
+      for (let pair of censoredArr) {
+        str1 = str1.replace(new RegExp(pair[0], 'gi'), pair[1])
+      }
+      return str1
+    }
+  }
 }
