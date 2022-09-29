@@ -313,31 +313,32 @@
 
 // Пример использования:
 
-const changeScene = censor()
+// const changeScene = censor()
 
-changeScene('PHP', 'JS')
+// changeScene('PHP', 'JS')
 
-changeScene('backend', 'frontend')
+// changeScene('backend', 'frontend')
 
-console.log(
-  changeScene(
-    'PHP is the most popular programming language for backend web-development'
-  )
-) // должно распечатать 'JS is the most popular programming language for frontend web-development'
+// console.log(
+//   changeScene(
+//     'PHP is the most popular programming language for backend web-development'
+//   )
+// )
+// должно распечатать 'JS is the most popular programming language for frontend web-development'
 
 // Примечание: в переданной строке, в качестве единственного параметра, замена происходит согласно
 // парам, где первое значение пары - что мы хотим заменить, второе значение пары - на что хотим заменить.
 
-function censor() {
-  const censoredArr = []
-  return function (str1, str2 = '') {
-    if (str2) {
-      censoredArr.push([str1, str2])
-    } else {
-      for (let pair of censoredArr) {
-        str1 = str1.replace(new RegExp(pair[0], 'gi'), pair[1])
-      }
-      return str1
-    }
-  }
-}
+// function censor() {
+//   const censoredArr = []
+//   return function (str1, str2 = '') {
+//     if (str2) {
+//       censoredArr.push([str1, str2])
+//     } else {
+//       for (let pair of censoredArr) {
+//         str1 = str1.replace(new RegExp(pair[0], 'gi'), pair[1])
+//       }
+//       return str1
+//     }
+//   }
+// }
