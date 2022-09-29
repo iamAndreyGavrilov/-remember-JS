@@ -129,82 +129,82 @@
 // новую коллекцию tsDevelopers, добавив туда только те элементы оригинальной коллекции, у которой в
 // массиве skills есть значение 'TypeScript'.
 
-const names = [
-  'Mikhail',
-  'Ivan',
-  'Albert',
-  'John',
-  'Ian',
-  'Petr',
-  'Alexandr',
-  'Oleg',
-  'Jaroslav',
-  'Vsevolod',
-]
+// const names = [
+//   'Mikhail',
+//   'Ivan',
+//   'Albert',
+//   'John',
+//   'Ian',
+//   'Petr',
+//   'Alexandr',
+//   'Oleg',
+//   'Jaroslav',
+//   'Vsevolod',
+// ]
 
-const shortNames = names.filter((n) => n.length <= 5)
+// const shortNames = names.filter((n) => n.length <= 5)
 
-const products = [
-  {
-    id: 1,
-    name: 'Intro to JavaScript',
-    category: 'books',
-    price: 150,
-  },
-  {
-    id: 2,
-    name: 'Intro to CSS',
-    category: 'books',
-    price: 120,
-  },
-  {
-    id: 3,
-    name: 'Deep dive into JavaScript',
-    category: 'books',
-    price: 350,
-  },
-  {
-    id: 4,
-    name: 'Intro to PHP',
-    category: 'books',
-    price: 250,
-  },
-  {
-    id: 5,
-    name: 'Deep dive into PHP',
-    category: 'books',
-    price: 350,
-  },
-]
+// const products = [
+//   {
+//     id: 1,
+//     name: 'Intro to JavaScript',
+//     category: 'books',
+//     price: 150,
+//   },
+//   {
+//     id: 2,
+//     name: 'Intro to CSS',
+//     category: 'books',
+//     price: 120,
+//   },
+//   {
+//     id: 3,
+//     name: 'Deep dive into JavaScript',
+//     category: 'books',
+//     price: 350,
+//   },
+//   {
+//     id: 4,
+//     name: 'Intro to PHP',
+//     category: 'books',
+//     price: 250,
+//   },
+//   {
+//     id: 5,
+//     name: 'Deep dive into PHP',
+//     category: 'books',
+//     price: 350,
+//   },
+// ]
 
-const cheapProducts = products.filter((prod) => prod.price <= 300)
-console.log(cheapProducts)
+// const cheapProducts = products.filter((prod) => prod.price <= 300)
+// console.log(cheapProducts)
 
-const developers = [
-  {
-    id: 1,
-    fullName: 'Ivan Ivanov',
-    skills: ['HTML', 'CSS', 'Git', 'Gulp', 'Pug'],
-  },
-  {
-    id: 2,
-    fullName: 'Petr Petrov',
-    skills: ['HTML', 'CSS', 'Git', 'JavaScript', 'npm'],
-  },
-  {
-    id: 3,
-    fullName: 'Ian Melnikov',
-    skills: ['HTML', 'CSS', 'Git', 'JavaScript', 'TypeScript'],
-  },
-  {
-    id: 4,
-    fullName: 'Antonio Banderas',
-    skills: ['HTML', 'CSS', 'Git', 'JavaScript', 'TypeScript', 'React'],
-  },
-]
+// const developers = [
+//   {
+//     id: 1,
+//     fullName: 'Ivan Ivanov',
+//     skills: ['HTML', 'CSS', 'Git', 'Gulp', 'Pug'],
+//   },
+//   {
+//     id: 2,
+//     fullName: 'Petr Petrov',
+//     skills: ['HTML', 'CSS', 'Git', 'JavaScript', 'npm'],
+//   },
+//   {
+//     id: 3,
+//     fullName: 'Ian Melnikov',
+//     skills: ['HTML', 'CSS', 'Git', 'JavaScript', 'TypeScript'],
+//   },
+//   {
+//     id: 4,
+//     fullName: 'Antonio Banderas',
+//     skills: ['HTML', 'CSS', 'Git', 'JavaScript', 'TypeScript', 'React'],
+//   },
+// ]
 
-const tsDevelopers = developers.filter((dev) =>
-  dev.skills.includes('TypeScript')
-)
+// const tsDevelopers = developers.filter((dev) =>
+//   dev.skills.includes('TypeScript')
+// )
 
-console.log(tsDevelopers);
+// console.log(tsDevelopers);
