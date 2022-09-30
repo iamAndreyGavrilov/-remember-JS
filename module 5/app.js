@@ -208,3 +208,169 @@
 // )
 
 // console.log(tsDevelopers);
+
+// Reduce
+
+// Практика на reduce
+// Дана коллекция товаров в корзине order. У каждого товара есть цена price и количество quantity.
+
+// Подсчитайте общую стоимость товаров в корзине и сохраните значение в переменной totalPrice.
+
+// const order = [
+//   {
+//     id: 1,
+//     name: 'Лопата',
+//     price: 1000,
+//     quantity: 1,
+//   },
+//   {
+//     id: 2,
+//     name: 'Удочка',
+//     price: 1200,
+//     quantity: 2,
+//   },
+//   {
+//     id: 3,
+//     name: 'Ведро',
+//     price: 500,
+//     quantity: 3,
+//   },
+//   {
+//     id: 4,
+//     name: 'Мороженое',
+//     price: 100,
+//     quantity: 8,
+//   },
+// ]
+
+// const totalPrice = order.reduce((acc, goods) => {
+//   return acc + goods.price * goods.quantity
+// }, 0)
+
+// console.log(totalPrice)
+
+// Find in collection(поиск в коллекции)
+
+// Практика на поиск в коллекции
+// Дана коллекция players. Найдите в ней объект с информацией об игроке с фамилией Messi и
+// сохраните в новую переменную messi.
+
+// const players = [
+//   {
+//     id: 1,
+//     name: 'Andres',
+//     surname: 'Iniesta',
+//     club: 'Vissel Cobe',
+//   },
+//   {
+//     id: 2,
+//     name: 'Eden',
+//     surname: 'Hazard',
+//     club: 'Real Madrid',
+//   },
+//   {
+//     id: 3,
+//     name: 'Mo',
+//     surname: 'Salah',
+//     club: 'Liverpool',
+//   },
+//   {
+//     id: 4,
+//     name: 'Lionel',
+//     surname: 'Messi',
+//     club: 'Barcelona',
+//   },
+// ]
+
+// const messi = players.find((item) => item.surname === 'Messi')
+// console.log(messi);
+
+// Sort
+
+// .sort((a, b) => a - b) //если идет работа с цифрами (number)
+
+// // если идет работа со Строками (string) то вот так function sorting
+// .sort(sorting)
+// function sorting(a, b) {
+//   if (a > b) {
+//     return 1
+//   }
+//   if (a < b) {
+//     return -1
+//   }
+//   return 0
+// }
+
+// //если идет работа с коллекцией
+// .sort((a,b)=>sorting(a.id, b.id))
+
+// Практика на сортировку массивов
+// Дан массив food и коллекция players. Создайте одну общую функцию сортировки, которая бы позволяла
+// сортировать food по алфавиту от А-Я, а также игроков коллекции по ключу surname.
+// И отсортируйте данные массивы, с помощью созданной функции.
+
+// const food = ['Apple', 'Melon', 'Banana', 'Yogurt', 'Orange', 'Stawberry']
+
+// const players = [
+//   {
+//     id: 1,
+//     name: 'Cristiano',
+//     surname: 'Ronaldo',
+//     club: 'Juventus',
+//   },
+//   {
+//     id: 2,
+//     name: 'Lionel',
+//     surname: 'Messi',
+//     club: 'Barcelona',
+//   },
+//   {
+//     id: 3,
+//     name: 'Karim',
+//     surname: 'Benzema',
+//     club: 'Real Madrid',
+//   },
+//   {
+//     id: 4,
+//     name: 'Maxi',
+//     surname: 'Gomez',
+//     club: 'Valencia',
+//   },
+//   {
+//     id: 5,
+//     name: 'Quincy',
+//     surname: 'Promes',
+//     club: 'Spartak',
+//   },
+// ]
+
+// function sorting(a, b) {
+//   if (a > b) {
+//     return 1
+//   }
+//   if (a < b) {
+//     return -1
+//   }
+//   return 0
+// }
+
+// food.sort(sorting)
+// players.sort((a, b) => sorting(a.surname, b.surname))
+
+// console.log(food);
+// console.log(players);
+
+//spread, rest оператор
+
+// const obj2 = { ...obj1 } // spread - копия объекта без ссылки
+
+//rest
+//args - всегда массив []
+// function sum(a, b, ...args) {
+//   let result = a + b
+//   for (let i = 0; i < args.length; i++) {
+//     result += args[i]
+//   }
+//   return result
+// }
+
