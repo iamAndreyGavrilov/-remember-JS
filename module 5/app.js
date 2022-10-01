@@ -396,29 +396,32 @@
 // 'blank', 'link', 'anchor', 'Click me'. Имена переменных используйте согласно ключам
 // (где необходимо, используйте переименование, создав переменную с именем renamed).
 
-const link = {
-  href: '#',
-  title: 'simple link',
-  target: 'blank',
-  className: 'link',
-  id: null,
-  children: {
-    span: {
-      content: 'Click me',
-      className: 'anchor',
-    },
-  },
-}
+// const link = {
+//   href: '#',
+//   title: 'simple link',
+//   target: 'blank',
+//   className: 'link',
+//   id: null,
+//   children: {
+//     span: {
+//       content: 'Click me',
+//       className: 'anchor',
+//     },
+//   },
+// }
 
-const {
-  target,
-  className,
-  children: {
-    span: { content, className: renamed },
-  },
-} = link
+// const {
+//   target,
+//   className,
+//   children: {
+//     span: { content, className: renamed },
+//   },
+// } = link
 
-console.log(target)
-console.log(className)
-console.log(content)
-console.log(renamed)
+// console.log(target)
+// console.log(className)
+// console.log(content)
+// console.log(renamed)
+
+// Шаблонные строки `${}`
+
