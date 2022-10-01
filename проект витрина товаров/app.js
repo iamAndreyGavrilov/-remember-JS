@@ -37,13 +37,17 @@ let order = []
 
 function addToBasket(productId) {
   // TODO: добавить проверку наличия товара в заказе (при наличии выдать alert, что товар уже в корзине)
-
+  if (order.find((el) => el.id === productId)) {
+    return alert('товар уже в корзине')
+  }
   // TODO: если товар еще не в корзине, добавить его из массива products
-  products.forEach((prod) => {
-    if (prod.id === productId) {
-      order.push(prod)
-    }
-  })
+  //   products.forEach((prod) => {
+  //     if (prod.id === productId) {
+  //       order.push(prod)
+  //     }
+  //   })
+  const product = products.find((item) => item.id === productId)
+  order = [...order, product]
   // Эти строчки не трогаем, они отвечают за переотрисовку страницы
   renderCart()
   rerenderTotalPrice()
@@ -51,7 +55,7 @@ function addToBasket(productId) {
 
 function removeFromBasket(productId) {
   // TODO: описать логику удаления товара из корзины
-  order = order.filter((user) => user.id !== productId)
+  order = order.filter((item) => item.id !== productId)
   // Эти строчки не трогаем, они отвечают за переотрисовку страницы
   renderCart()
   rerenderTotalPrice()
