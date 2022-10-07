@@ -41,7 +41,7 @@ function handleSubmit(event) {
     //submit AJAX
     form.reset();
   } else {
-    alert("исправь форму");
+    alert("исправьте форму");
   }
 }
 
