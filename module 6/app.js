@@ -66,30 +66,30 @@
 // отменить всплытие
 // event.stopPropagation()
 
-// Динамическое создание и удаление элементов
+// // Динамическое создание и удаление элементов
 
-const list = document.getElementById("todos");
-document.querySelector("button").addEventListener("click", handleClick);
+// const list = document.getElementById("todos");
+// document.querySelector("button").addEventListener("click", handleClick);
 
-function handleClick() {
-  const newTodo = this.previousElementSibling.value.trim();
-  if (newTodo) {
-    createTodo(newTodo);
-    this.previousElementSibling.value = "";
-  } else {
-    alert("нету текста");
-  }
-}
+// function handleClick() {
+//   const newTodo = this.previousElementSibling.value.trim();
+//   if (newTodo) {
+//     createTodo(newTodo);
+//     this.previousElementSibling.value = "";
+//   } else {
+//     alert("нету текста");
+//   }
+// }
 
-function createTodo(text) {
-  const li = document.createElement("li");
-  li.innerText = text;
-  li.className = "todo-item";
-  li.addEventListener("click", removeTodo);
-  list.append(li);
-}
+// function createTodo(text) {
+//   const li = document.createElement("li");
+//   li.innerText = text;
+//   li.className = "todo-item";
+//   li.addEventListener("click", removeTodo);
+//   list.append(li);
+// }
 
-function removeTodo() {
-  this.removeEventListener("click", removeTodo);
-  this.remove();
-}
+// function removeTodo() {
+//   this.removeEventListener("click", removeTodo);
+//   this.remove();
+// }
