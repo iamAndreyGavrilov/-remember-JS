@@ -17,43 +17,79 @@
 
 // const sections = document.getElementsByTagName('section')
 
-const btn = document.querySelector("button");
-const inputs = document.querySelectorAll("input");
-const form = document.querySelector("form");
+//=======================================
 
-inputs.forEach((input) => input.addEventListener("keypress", handleEvent));
-form.addEventListener("submit", handleSubmit);
+// const btn = document.querySelector("button");
+// const inputs = document.querySelectorAll("input");
+// const form = document.querySelector("form");
 
-// btn.addEventListener("click", handleEvent);
+// inputs.forEach((input) => input.addEventListener("keypress", handleEvent));
+// form.addEventListener("submit", handleSubmit);
 
-function handleEvent(event) {
-  console.log(event);
-  console.dir(event.target);
-  if (event.key === "Enter") {
-    event.preventDefault();
-    event.target.nextElementSibling.focus();
-  }
-}
+// // btn.addEventListener("click", handleEvent);
 
-function handleSubmit(event) {
-  event.preventDefault();
-  if (validate()) {
-    //submit AJAX
-    form.reset();
+// function handleEvent(event) {
+//   console.log(event);
+//   console.dir(event.target);
+//   if (event.key === "Enter") {
+//     event.preventDefault();
+//     event.target.nextElementSibling.focus();
+//   }
+// }
+
+// function handleSubmit(event) {
+//   event.preventDefault();
+//   if (validate()) {
+//     //submit AJAX
+//     form.reset();
+//   } else {
+//     alert("исправьте форму");
+//   }
+// }
+
+// function validate() {
+//   const isValid = true;
+//   inputs.forEach((input) => {
+//     if (!input.value.trim()) {
+//       input.style.borderColor = "red";
+//       isValid = false;
+//     } else {
+//       input.style.borderColor = "currentColor";
+//     }
+//   });
+//   return isValid;
+// }
+
+//отменить стандартное поведение и отправку формы
+// event.preventDefault();
+
+// отменить всплытие
+// event.stopPropagation()
+
+// Динамическое создание и удаление элементов
+
+const list = document.getElementById("todos");
+document.querySelector("button").addEventListener("click", handleClick);
+
+function handleClick() {
+  const newTodo = this.previousElementSibling.value.trim();
+  if (newTodo) {
+    createTodo(newTodo);
+    this.previousElementSibling.value = "";
   } else {
-    alert("исправьте форму");
+    alert("нету текста");
   }
 }
 
-function validate() {
-  const isValid = true;
-  inputs.forEach((input) => {
-    if (!input.value.trim()) {
-      input.style.borderColor = "red";
-      isValid = false;
-    } else {
-      input.style.borderColor = "currentColor";
-    }
-  });
-  return isValid;
+function createTodo(text) {
+  const li = document.createElement("li");
+  li.innerText = text;
+  li.className = "todo-item";
+  li.addEventListener("click", removeTodo);
+  list.append(li);
+}
+
+function removeTodo() {
+  this.removeEventListener("click", removeTodo);
+  this.remove();
 }
