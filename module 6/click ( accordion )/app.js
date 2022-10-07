@@ -11,10 +11,10 @@
 
 // Примечание 2: используйте селекторы соседей относительно доступных элементов.
 
-const buttons = document.querySelectorAll('.accordion')
-buttons.forEach((btn) =>
-  btn.addEventListener('click', () => {
-    const panel = btn.nextElementSibling
-    panel.classList.toggle('show')
-  })
-)
+// const buttons = document.querySelectorAll('.accordion')
+// buttons.forEach((btn) =>
+//   btn.addEventListener('click', () => {
+//     const panel = btn.nextElementSibling
+//     panel.classList.toggle('show')
+//   })
+// )

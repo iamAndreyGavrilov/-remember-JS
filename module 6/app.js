@@ -16,3 +16,44 @@
 // const subtitle = document.querySelector('h2.gray')
 
 // const sections = document.getElementsByTagName('section')
+
+const btn = document.querySelector("button");
+const inputs = document.querySelectorAll("input");
+const form = document.querySelector("form");
+
+inputs.forEach((input) => input.addEventListener("keypress", handleEvent));
+form.addEventListener("submit", handleSubmit);
+
+// btn.addEventListener("click", handleEvent);
+
+function handleEvent(event) {
+  console.log(event);
+  console.dir(event.target);
+  if (event.key === "Enter") {
+    event.preventDefault();
+    event.target.nextElementSibling.focus();
+  }
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  if (validate()) {
+    //submit AJAX
+    form.reset();
+  } else {
+    alert("исправь форму");
+  }
+}
+
+function validate() {
+  const isValid = true;
+  inputs.forEach((input) => {
+    if (!input.value.trim()) {
+      input.style.borderColor = "red";
+      isValid = false;
+    } else {
+      input.style.borderColor = "currentColor";
+    }
+  });
+  return isValid;
+}
