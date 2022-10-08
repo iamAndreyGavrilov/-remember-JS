@@ -117,4 +117,5 @@ function loadTodos() {
 
 function removetoStorage() {
   localStorage.clear();
+  // это плохой вариант
 }
