@@ -68,54 +68,54 @@
 
 // Динамическое создание и удаление элементов
 
-const list = document.getElementById("todos");
-document.querySelector("button").addEventListener("click", handleClick);
-document.addEventListener("DOMContentLoaded", loadTodos);
+// const list = document.getElementById("todos");
+// document.querySelector("button").addEventListener("click", handleClick);
+// document.addEventListener("DOMContentLoaded", loadTodos);
 
-function handleClick() {
-  const newTodo = this.previousElementSibling.value.trim();
-  if (newTodo) {
-    createTodo(newTodo);
-    savetoStorage(newTodo);
+// function handleClick() {
+//   const newTodo = this.previousElementSibling.value.trim();
+//   if (newTodo) {
+//     createTodo(newTodo);
+//     savetoStorage(newTodo);
 
-    this.previousElementSibling.value = "";
-  } else {
-    alert("нету текста");
-  }
-}
+//     this.previousElementSibling.value = "";
+//   } else {
+//     alert("нету текста");
+//   }
+// }
 
-function createTodo(text) {
-  const li = document.createElement("li");
-  li.innerText = text;
-  li.className = "todo-item";
-  li.addEventListener("click", removeTodo);
-  list.append(li);
-}
+// function createTodo(text) {
+//   const li = document.createElement("li");
+//   li.innerText = text;
+//   li.className = "todo-item";
+//   li.addEventListener("click", removeTodo);
+//   list.append(li);
+// }
 
-function removeTodo() {
-  this.removeEventListener("click", removeTodo);
-  this.remove();
-  removetoStorage();
-}
+// function removeTodo() {
+//   this.removeEventListener("click", removeTodo);
+//   this.remove();
+//   removetoStorage();
+// }
 
-// localStorage
+// // localStorage
 
-function savetoStorage(todo) {
-  const todos = JSON.parse(localStorage.getItem("tasks")) || [];
-  localStorage.setItem("tasks", JSON.stringify([...todos, todo]));
-}
+// function savetoStorage(todo) {
+//   const todos = JSON.parse(localStorage.getItem("tasks")) || [];
+//   localStorage.setItem("tasks", JSON.stringify([...todos, todo]));
+// }
 
-function loadTodos() {
-  const todos = JSON.parse(localStorage.getItem("tasks"));
+// function loadTodos() {
+//   const todos = JSON.parse(localStorage.getItem("tasks"));
 
-  if (todos) {
-    todos.forEach((todo) => {
-      createTodo(todo);
-    });
-  }
-}
+//   if (todos) {
+//     todos.forEach((todo) => {
+//       createTodo(todo);
+//     });
+//   }
+// }
 
-function removetoStorage() {
-  localStorage.clear();
-  // это плохой вариант
-}
+// function removetoStorage() {
+//   localStorage.clear();
+//   // это плохой вариант
+// }
