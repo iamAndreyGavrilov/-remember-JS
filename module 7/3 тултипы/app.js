@@ -17,3 +17,9 @@ function handleClick(event) {
     duration: 3000,
   });
 }
+
+// тултипы
+tippy("[data-tippy-content]", {
+  theme: "light",
+  placement: "bottom",
+});

@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tippy.js@6/themes/light.css"
+    />
   </head>
   <body>
     <header
@@ -13,7 +17,11 @@
     >
       <h1>hello header</h1>
       <div>
-        <button data-target="#section" data-mt-duration="3000">
+        <button
+          data-target="#section"
+          data-mt-duration="3000"
+          data-tippy-content="Click to go section"
+        >
           go section
         </button>
         <button data-target="#footer" data-mt-duration="1500">go footer</button>
@@ -42,7 +50,11 @@
       <button data-target="#header" data-mt-duration="1500">go header</button>
     </section>
 
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moveTo/1.8.2/moveTo.min.js"></script>
+
     <script src="app.js"></script>
   </body>
 </html>
