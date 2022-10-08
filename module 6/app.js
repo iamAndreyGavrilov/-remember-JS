@@ -66,30 +66,55 @@
 // отменить всплытие
 // event.stopPropagation()
 
-// // Динамическое создание и удаление элементов
+// Динамическое создание и удаление элементов
 
-// const list = document.getElementById("todos");
-// document.querySelector("button").addEventListener("click", handleClick);
+const list = document.getElementById("todos");
+document.querySelector("button").addEventListener("click", handleClick);
+document.addEventListener("DOMContentLoaded", loadTodos);
 
-// function handleClick() {
-//   const newTodo = this.previousElementSibling.value.trim();
-//   if (newTodo) {
-//     createTodo(newTodo);
-//     this.previousElementSibling.value = "";
-//   } else {
-//     alert("нету текста");
-//   }
-// }
+function handleClick() {
+  const newTodo = this.previousElementSibling.value.trim();
+  if (newTodo) {
+    createTodo(newTodo);
+    savetoStorage(newTodo);
 
-// function createTodo(text) {
-//   const li = document.createElement("li");
-//   li.innerText = text;
-//   li.className = "todo-item";
-//   li.addEventListener("click", removeTodo);
-//   list.append(li);
-// }
+    this.previousElementSibling.value = "";
+  } else {
+    alert("нету текста");
+  }
+}
 
-// function removeTodo() {
-//   this.removeEventListener("click", removeTodo);
-//   this.remove();
-// }
+function createTodo(text) {
+  const li = document.createElement("li");
+  li.innerText = text;
+  li.className = "todo-item";
+  li.addEventListener("click", removeTodo);
+  list.append(li);
+}
+
+function removeTodo() {
+  this.removeEventListener("click", removeTodo);
+  this.remove();
+  removetoStorage();
+}
+
+// localStorage
+
+function savetoStorage(todo) {
+  const todos = JSON.parse(localStorage.getItem("tasks")) || [];
+  localStorage.setItem("tasks", JSON.stringify([...todos, todo]));
+}
+
+function loadTodos() {
+  const todos = JSON.parse(localStorage.getItem("tasks"));
+
+  if (todos) {
+    todos.forEach((todo) => {
+      createTodo(todo);
+    });
+  }
+}
+
+function removetoStorage() {
+  localStorage.clear();
+}
