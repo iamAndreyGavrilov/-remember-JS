@@ -89,28 +89,29 @@
       </div>
     </footer>
 
-    <section id="map" style="height: 500px; background-color: rgb(84, 69, 133)">
+    <section
+      id="map"
+      style="height: 500px; background-color: rgb(148, 147, 151)"
+    >
       <div>
         <h2>hello map</h2>
       </div>
       <button data-target="#header" data-mt-duration="1500">go header</button>
-      <div>
-        <img
-          style="width: 100%"
-          class="lazyload"
-          data-src="https://images.unsplash.com/photo-1470116073782-48ae2ccd8ffd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
-          alt="bird"
-        />
-      </div>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d191884.74521219748!2d69.13893936558158!3d41.282770138888516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b0cc379e9c3%3A0xa5a9323b4aa5cb98!2z0KLQsNGI0LrQtdC90YIsINCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1665303963572!5m2!1sru!2s"
-        width="600"
-        height="450"
-        style="border: 0"
-        allowfullscreen=""
-        class="lazyload"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+
+      <form autocomplete="off">
+        <label>
+          Phone
+          <input type="text" id="phone" />
+        </label>
+        <label>
+          Age
+          <input type="text" id="age" />
+        </label>
+        <label>
+          Date
+          <input type="text" id="date" />
+        </label>
+      </form>
     </section>
 
     <script src="https://unpkg.com/@popperjs/core@2"></script>
@@ -121,7 +122,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://afarkas.github.io/lazysizes/lazysizes.min.js"></script>
 
-    
+    <script src="https://unpkg.com/imask"></script>
 
     <script src="app.js"></script>
   </body>
