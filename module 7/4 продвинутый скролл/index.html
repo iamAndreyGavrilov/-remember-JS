@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.3/css/OverlayScrollbars.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tippy.js@6/themes/light.css"
+    />
+  </head>
+  <body>
+    <header
+      id="header"
+      style="height: 500px; background-color: rgb(74, 142, 142)"
+    >
+      <h1>hello header</h1>
+      <div class="overlay" style="width: 100%; overflow: hidden">
+        <div class="actions">
+          <button
+            data-target="#section"
+            data-mt-duration="3000"
+            data-tippy-content="Click to go section"
+          >
+            go section
+          </button>
+          <button data-target="#footer" data-mt-duration="1500">
+            go footer
+          </button>
+          <a href="#map">go map</a>
+        </div>
+      </div>
+    </header>
+
+    <section
+      id="section"
+      style="height: 500px; background-color: rgb(113, 139, 73)"
+    >
+      <div><h2>hello section</h2></div>
+    </section>
+
+    <footer
+      id="footer"
+      style="height: 500px; background-color: rgb(130, 74, 74)"
+    >
+      <div>
+        <h2>hello footer</h2>
+      </div>
+    </footer>
+
+    <section id="map" style="height: 500px; background-color: rgb(84, 69, 133)">
+      <div><h2>hello map</h2></div>
+      <button data-target="#header" data-mt-duration="1500">go header</button>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moveTo/1.8.2/moveTo.min.js"></script>
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.3/js/OverlayScrollbars.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
