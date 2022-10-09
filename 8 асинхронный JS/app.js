@@ -34,24 +34,48 @@
 // CRUD - операции (create, read, update, delete)
 // HTTP - POST, GET, PUT | PATCH, DELETE
 
-fetch("https://jsonplaceholder.typicode.com/posts", {
-  method: "POST",
-  body: JSON.stringify({
-    id: 201,
-    title: "new title",
-    body: "test",
-    userid: 111,
-  }),
-  headers: {
-    "Content-Type": "application/json",
-  },
-})
-  .then((response) => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error("error response");
-    }
-  })
-  .then((json) => console.log(json))
-  .catch(console.error);
+// fetch("https://jsonplaceholder.typicode.com/posts", {
+//   method: "POST",
+//   body: JSON.stringify({
+//     id: 201,
+//     title: "new title",
+//     body: "test",
+//     userid: 111,
+//   }),
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+// })
+//   .then((response) => {
+//     if (response.ok) {
+//       return response.json();
+//     } else {
+//       throw new Error("error response");
+//     }
+//   })
+//   .then((json) => console.log(json))
+//   .catch(console.error);
+
+// AJAX
+
+// Асинхронные функции
+
+async function getUsers() {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const data = await response.json();
+
+    console.log(data);
+
+    //   return data;
+    // возвращается Promise, значит нужен .then()
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+// getUsers().then(console.log);
+
+getUsers();
+
+// const getUsers = async () => {};
