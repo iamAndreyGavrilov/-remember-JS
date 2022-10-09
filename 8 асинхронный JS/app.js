@@ -20,7 +20,32 @@
 
 // Асинхронное получение данных с сервера
 
-fetch("https://jsonplaceholder.typicode.com/todsos/1")
+// fetch("https://jsonplaceholder.typicode.com/todsos/1")
+//   .then((response) => {
+//     if (response.ok) {
+//       return response.json();
+//     } else {
+//       throw new Error("error response");
+//     }
+//   })
+//   .then((json) => console.log(json))
+//   .catch(console.error);
+
+// CRUD - операции (create, read, update, delete)
+// HTTP - POST, GET, PUT | PATCH, DELETE
+
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  body: JSON.stringify({
+    id: 201,
+    title: "new title",
+    body: "test",
+    userid: 111,
+  }),
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
   .then((response) => {
     if (response.ok) {
       return response.json();
