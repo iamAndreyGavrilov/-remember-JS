@@ -2,11 +2,15 @@
   "name": "packege",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "print": "node index.js"
+    "print": "node index.js",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  }
 }
