@@ -37,6 +37,8 @@ function printTodo({ id, userId, title, completed }) {
   close.innerHTML = "&times;";
   close.className = "close";
 
+  close.addEventListener("click", handleClose);
+
   li.prepend(status);
   li.append(close);
 
@@ -49,6 +51,15 @@ function createUserOption(user) {
   option.innerText = user.name;
 
   userSelect.append(option);
+}
+
+function removeTodo(todoId) {
+  todos = todos.filter((todo) => todo.id !== todoId);
+
+  const todo = todoList.querySelector(`[data-id='${todoId}']`);
+  todo.querySelector("input").removeEventListener("change", handleTodoChange);
+  todo.querySelector(".close").removeEventListener("click", handleClose);
+  todo.remove();
 }
 
 //event logic
@@ -78,10 +89,18 @@ function handleSubmit(event) {
 }
 
 function handleTodoChange() {
+  //с родительского элемента получает id
   const todoId = this.parentElement.dataset.id;
   const completed = this.checked;
 
   toggleTodoComplete(todoId, completed);
+}
+
+function handleClose() {
+  //с родительского элемента получает id
+  const todoId = this.parentElement.dataset.id;
+
+  deleteTodo(todoId);
 }
 
 // async logic
@@ -127,5 +146,22 @@ async function toggleTodoComplete(todoId, completed) {
 
   if (!response.ok) {
     //error
+  }
+}
+
+async function deleteTodo(todoId) {
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/todos/${todoId}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  if (response.ok) {
+    // remove todo from DOM
+    removeTodo(todoId);
   }
 }
