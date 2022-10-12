@@ -67,10 +67,46 @@
 
 // наследование классов ES6
 
+// class Player {
+//   constructor(login, score = 100) {
+//     this.login = login;
+//     this.score = score;
+//   }
+//   increaseScore(num = 10) {
+//     this.score += num;
+//   }
+//   decreaseScore(num = 10) {
+//     this.score -= num;
+//   }
+// }
+
+// class PaidPlayer extends Player {
+//   constructor(login, score = 100, accBalance = 1000) {
+//     // в базовом варианте super вызывает родительский constructor у Player
+//     super(login, score);
+//     this.accBalance = accBalance;
+//   }
+
+//   increaseBalance(amount = 0) {
+//     this.accBalance += amount;
+//   }
+// }
+
+// const player3 = new Player("Tor");
+// const player4 = new Player("Loki", 200);
+// const pp1 = new PaidPlayer("stark", 200, 100000);
+
+// console.log(pp1);
+
+// статические свойства и методы классов
+
 class Player {
+  static totalPlayers = 0;
   constructor(login, score = 100) {
     this.login = login;
     this.score = score;
+
+    Player.totalPlayers++;
   }
   increaseScore(num = 10) {
     this.score += num;
@@ -78,17 +114,32 @@ class Player {
   decreaseScore(num = 10) {
     this.score -= num;
   }
+
+  static create(login) {
+    return new Player(login, 250);
+  }
+
+  static sortedByScore(a, b) {
+    return a.score - b.score;
+  }
 }
 
 class PaidPlayer extends Player {
+  static totalPlayers = 0;
+
   constructor(login, score = 100, accBalance = 1000) {
     // в базовом варианте super вызывает родительский constructor у Player
     super(login, score);
     this.accBalance = accBalance;
+    PaidPlayer.totalPlayers++;
   }
 
   increaseBalance(amount = 0) {
     this.accBalance += amount;
+  }
+
+  static create(login) {
+    return new PaidPlayer(login, 250, 1000);
   }
 }
 
