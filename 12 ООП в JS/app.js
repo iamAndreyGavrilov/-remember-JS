@@ -228,7 +228,6 @@
 
 // Использование статических методов, геттеров и сеттеров
 
-
 // Создайте класс Temperature, который:
 
 // в конструкторе принимает число в градусах Цельсия
@@ -241,31 +240,48 @@
 // содержит статический метод fromFahrenheit для создания экземпляра с автоматически пересчитанным
 // значением в Цельсиях (прим.: для округления значений используйте Math.round).
 
-class Temperature {
-  constructor(celsius) {
-    this.celsius = celsius;
-  }
+// class Temperature {
+//   constructor(celsius) {
+//     this.celsius = celsius;
+//   }
 
-  get fahrenheit() {
-    return this.celsius * 1.8 + 32;
-  }
+//   get fahrenheit() {
+//     return this.celsius * 1.8 + 32;
+//   }
 
-  set fahrenheit(value) {
-    this.celsius = (value - 32) / 1.8;
-  }
+//   set fahrenheit(value) {
+//     this.celsius = (value - 32) / 1.8;
+//   }
 
-  static fromFahrenheit(value) {
-    return new Temperature(Math.round((value - 32) / 1.8));
-  }
-}
+//   static fromFahrenheit(value) {
+//     return new Temperature(Math.round((value - 32) / 1.8));
+//   }
+// }
 
-const day1 = new Temperature(25);
-console.log(day1.celsius);
-console.log(day1.fahrenheit);
+// const day1 = new Temperature(25);
+// console.log(day1.celsius);
+// console.log(day1.fahrenheit);
 
-day1.celsius = 26;
-day1.fahrenheit = 67;
+// day1.celsius = 26;
+// day1.fahrenheit = 67;
 
-const day2 = new Temperature(24);
+// const day2 = new Temperature(24);
 
-const day3 = Temperature.fromFahrenheit(88);
+// const day3 = Temperature.fromFahrenheit(88);
+
+
+
+
+
+// Актуальность классов для создания UI компонентов
+
+
+// Создание класса для UI Spoiler
+// HTML-разметка содержит две группы спойлеров: одну с css-классом collapsible, другую - с collapsible2.
+
+// Необходимо в файле collapser.js создать класс Collapser, который будет принимать в конструктор 
+// css-класс для спойлера и автоматически добавлять всем экземплярам функциональность скрытия и отображения 
+// информации из соседнего блока с css-классом content.
+
+// В HTML-разметке уже подключен js-файлы и реализована попытка создать соответствующие инстансы 
+// класса Collapser. Поэтому по задаче достаточно описать сам JavaScript класс.
