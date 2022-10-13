@@ -269,19 +269,57 @@
 
 // const day3 = Temperature.fromFahrenheit(88);
 
-
-
-
-
 // Актуальность классов для создания UI компонентов
-
 
 // Создание класса для UI Spoiler
 // HTML-разметка содержит две группы спойлеров: одну с css-классом collapsible, другую - с collapsible2.
 
-// Необходимо в файле collapser.js создать класс Collapser, который будет принимать в конструктор 
-// css-класс для спойлера и автоматически добавлять всем экземплярам функциональность скрытия и отображения 
+// Необходимо в файле collapser.js создать класс Collapser, который будет принимать в конструктор
+// css-класс для спойлера и автоматически добавлять всем экземплярам функциональность скрытия и отображения
 // информации из соседнего блока с css-классом content.
 
-// В HTML-разметке уже подключен js-файлы и реализована попытка создать соответствующие инстансы 
+// В HTML-разметке уже подключен js-файлы и реализована попытка создать соответствующие инстансы
 // класса Collapser. Поэтому по задаче достаточно описать сам JavaScript класс.
+
+// Паттерны проектирования
+
+// 1) Singleton
+
+class User {
+  constructor(login, email) {
+    this.login = login;
+    this.email = email;
+  }
+}
+
+class Editor extends User {
+  constructor(login, email) {
+    super(login, email);
+  }
+
+  createPost(title, text) {}
+}
+
+// создаем одного админа и все, других не получится
+
+class Admin extends User {
+  static exists = false;
+  static instance = null;
+
+  constructor(login, email) {
+    if (Admin.exists) {
+      return Admin.instance;
+    }
+
+    super(login, email);
+    Admin.exists = true;
+    Admin.instance = this;
+  }
+}
+
+const admin1 = new Admin("admin", "mail@com");
+console.log(admin1);
+
+//admin2 - не создается, а ссылается на admin1
+const admin2 = new Admin("admin222", "mail@com222");
+console.log(admin2);
