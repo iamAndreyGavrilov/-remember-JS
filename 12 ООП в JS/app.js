@@ -283,7 +283,48 @@
 
 // Паттерны проектирования
 
-// 1) Singleton
+// 1) Singleton - одиночка
+
+// class User {
+//   constructor(login, email) {
+//     this.login = login;
+//     this.email = email;
+//   }
+// }
+
+// class Editor extends User {
+//   constructor(login, email) {
+//     super(login, email);
+//   }
+
+//   createPost(title, text) {}
+// }
+
+// // создаем одного админа и все, других не получится
+
+// class Admin extends User {
+//   static exists = false;
+//   static instance = null;
+
+//   constructor(login, email) {
+//     if (Admin.exists) {
+//       return Admin.instance;
+//     }
+
+//     super(login, email);
+//     Admin.exists = true;
+//     Admin.instance = this;
+//   }
+// }
+
+// const admin1 = new Admin("admin", "mail@com");
+// console.log(admin1);
+
+// //admin2 - не создается, а ссылается на admin1
+// const admin2 = new Admin("admin222", "mail@com222");
+// console.log(admin2);
+
+// 2) Factory method - фабричный метод
 
 class User {
   constructor(login, email) {
@@ -315,11 +356,26 @@ class Admin extends User {
     Admin.exists = true;
     Admin.instance = this;
   }
+  createPost(title, text) {}
 }
 
-const admin1 = new Admin("admin", "mail@com");
-console.log(admin1);
+class UserCreator {
+  static userList = {
+    user: User,
+    editor: Editor,
+    admin: Admin,
+  };
+  static create(login, email, role = "user") {
+    const Fabric = UserCreator.userList[role];
 
-//admin2 - не создается, а ссылается на admin1
-const admin2 = new Admin("admin222", "mail@com222");
-console.log(admin2);
+    const instance = new Fabric(login, email);
+    instance.role = role;
+    return instance;
+  }
+}
+
+const user1 = UserCreator.create("log", "mail");
+console.log(user1);
+
+const user2 = UserCreator.create("log2", "mail2", "editor");
+console.log(user2);
