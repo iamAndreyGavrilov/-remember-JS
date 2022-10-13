@@ -326,6 +326,62 @@
 
 // 2) Factory method - фабричный метод
 
+// class User {
+//   constructor(login, email) {
+//     this.login = login;
+//     this.email = email;
+//   }
+// }
+
+// class Editor extends User {
+//   constructor(login, email) {
+//     super(login, email);
+//   }
+
+//   createPost(title, text) {}
+// }
+
+// // создаем одного админа и все, других не получится
+
+// class Admin extends User {
+//   static exists = false;
+//   static instance = null;
+
+//   constructor(login, email) {
+//     if (Admin.exists) {
+//       return Admin.instance;
+//     }
+
+//     super(login, email);
+//     Admin.exists = true;
+//     Admin.instance = this;
+//   }
+//   createPost(title, text) {}
+// }
+
+// class UserCreator {
+//   static userList = {
+//     user: User,
+//     editor: Editor,
+//     admin: Admin,
+//   };
+//   static create(login, email, role = "user") {
+//     const Fabric = UserCreator.userList[role];
+
+//     const instance = new Fabric(login, email);
+//     instance.role = role;
+//     return instance;
+//   }
+// }
+
+// const user1 = UserCreator.create("log", "mail");
+// console.log(user1);
+
+// const user2 = UserCreator.create("log2", "mail2", "editor");
+// console.log(user2);
+
+// 3) Адаптер - Wrapper, Обёртка, Adapter
+
 class User {
   constructor(login, email) {
     this.login = login;
@@ -340,8 +396,6 @@ class Editor extends User {
 
   createPost(title, text) {}
 }
-
-// создаем одного админа и все, других не получится
 
 class Admin extends User {
   static exists = false;
@@ -362,10 +416,10 @@ class Admin extends User {
 class UserCreator {
   static userList = {
     user: User,
-    editor: Editor,
+    publisher: Editor,
     admin: Admin,
   };
-  static create(login, email, role = "user") {
+  static createUser(login, email, role = "user") {
     const Fabric = UserCreator.userList[role];
 
     const instance = new Fabric(login, email);
@@ -374,8 +428,19 @@ class UserCreator {
   }
 }
 
-const user1 = UserCreator.create("log", "mail");
-console.log(user1);
+class UserAdapter {
+  static userList = {
+    user: "user",
+    еditor: "publisher",
+    admin: "admin",
+  };
+  static create(login, email, role = "user") {
+    return UserCreator.createUser(login, email, UserAdapter.userList[role]);
+  }
+}
 
-const user2 = UserCreator.create("log2", "mail2", "editor");
-console.log(user2);
+const user3 = UserAdapter.create("log3", "mail3");
+console.log(user3);
+
+const user4 = UserAdapter.create("log4", "mail4", "editor");
+console.log(user4);
